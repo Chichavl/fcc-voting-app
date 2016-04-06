@@ -6,7 +6,7 @@ var Url = require('../models/url.js');
 
 	function genId(len) {
 		var i;
-		var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
 		var id = '';
 		for (i=0;i<len;i++) {
 			id += chars.charAt(Math.floor(Math.random() * chars.length));
