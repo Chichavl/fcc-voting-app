@@ -32,7 +32,7 @@ function ApiHandler () {
 
 	this.addUrl = function (req, res, next) {
 		var fullUrl = req.params.protocol + '//' + req.params.url;
-		if (validUrl.isUri(fullUrl)) {
+		if (validUrl.isWebUri(fullUrl)) {
 		    //valid url
 		    	Url.findOneAndUpdate({"original_url": fullUrl}, 
 			{$setOnInsert: 
