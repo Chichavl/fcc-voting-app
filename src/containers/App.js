@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import Grid from 'react-bootstrap/lib/Grid';
-import Jumbotron from 'react-bootstrap/lib/Jumbotron';
+// components
+import NavbarInstance from '../components/NavbarInstance';
+import Poll from '../components/poll';
+import Vote from '../components/vote';
+import FooterInstance from '../components/FooterInstance';
+import NoMatch from '../components/NoMatch';
+import VoteApp from '../components/VoteApp';
+
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 export default class App extends Component {
     render() 
     {
-        const app = (
-        <Grid>
-            <Jumbotron>
-                <div>
-                    <ul>
-                        <li><Link to='/vote'>vote</Link></li>
-                        <li><Link to='/'>poll</Link></li>
-                    </ul>
-                    { this.props.children }
-                </div>
-            </Jumbotron>
-        </Grid>
+        const layout = (
+        <div>
+            <NavbarInstance/>
+            <Router history={browserHistory}>
+                <Route path='/' component={VoteApp}>
+                  <IndexRoute component={Poll}/>
+                  <Route path='vote/:id' component={Vote}/>
+                <Route path='*' component={NoMatch}/>
+                </Route>
+                
+            </Router>
+           <FooterInstance/>
+       </div>
         );
-        return app;
+        return layout;
     }
 }

@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class Vote extends Component {
-  
-  
-    
-  
-  
-  render()
+    render()
   {
     const id = this.props.params.id;
     const poll = this.props.polls.filter(function(val)
