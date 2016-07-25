@@ -1,3 +1,13 @@
+# Dependency directory
 node_modules/
-.eslintrc
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Compiled js files
+public/js/
+
+# dotenv
 .env
