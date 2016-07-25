@@ -1,32 +1,44 @@
 {
-  "name": "clementinejs-fcc",
-  "version": "1.0.1",
-  "description": "The elegant and lightweight boilerplate for full stack JavaScript.",
+  "name": "FCC-voting-app",
+  "version": "1.0.0",
+  "description": "Free Code Camp - Build a Voting App challenge",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnstonbl01/clementinejs-fcc"
+    "url": "git+https://github.com/Chichavl/fcc-voting-app"
   },
-  "homepage": "http://www.clementinejs.com/",
-  "bugs": "https://github.com/johnstonbl01/clementinejs-fcc/issues",
-  "keywords": [
-    "MongoDB",
-    "Mongoose",
-    "full stack",
-    "Express",
-    "Node",
-    "javascript",
-    "boilerplate"
-  ],
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "webpack",
+    "mongo": "mongod --smallfiles",
+    "dev": "npm run mongo & npm run build & npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Blake Johnston",
-  "license": "MIT",
+  "author": "Vadim Grigorov",
+  "license": "ISC",
   "dependencies": {
+    "babel": "^6.5.2",
     "dotenv": "^1.2.0",
     "express": "^4.12.4",
     "mongoose": "^4.4.11",
-    "valid-url": "^1.0.9"
+    "react": "^15.0.1",
+    "react-bootstrap": "^0.28.5",
+    "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "redux": "^3.5.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "eslint": "^3.0.0",
+    "eslint-loader": "^1.4.0",
+    "eslint-plugin-react": "^5.2.2",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.13.0",
+    "webpack-hot-middleware": "^2.12.1"
   }
 }

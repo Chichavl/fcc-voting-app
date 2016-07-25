@@ -1,7 +1,7 @@
 'use strict';
 
 var path = process.cwd();
-var ApiHandler = require(path + '/app/controllers/urlHandler.server.js');
+var ApiHandler = require(path + '/app/controllers/pollHandler.server.js');
 
 module.exports = function (app) {
 
@@ -15,20 +15,20 @@ module.exports = function (app) {
 
 	var apiHandler = new ApiHandler();
 
-	app.route('/')
+
+
+	// app.route('/new/:protocol//:url')
+	// 	.get(apiHandler.addUrl);
+		
+	//create new poll
+	app.route('/api/poll')
+		.post(apiHandler.addPoll);
+	//get poll by id
+	app.route('/api/poll/:id')
+		.get(apiHandler.getPoll);
+		
+	app.route('*')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/index.html');
 		});
-
-	app.route('/new/:protocol//:url')
-		.get(apiHandler.addUrl);
-		
-	//route is invalid should return error (no double slashes)
-	app.route('/new/:url')
-		.get(function(req, res) {
-		    res.json({error: "Wrong url format, make sure you have a valid protocol and real site."});
-		});
-	
-	app.route('/:id')
-		.get(apiHandler.getOriginalUrl);
 };
